@@ -1,3 +1,79 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Nuovo voto</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <form #creavoto="ngForm" (ngSubmit)="raccogliSubmit()">
+      <mat-form-field>
+        <mat-label>Studente</mat-label>
+        <input 
+          matInput
+          type="text"
+          id="studente"
+          name="studente"
+          [(ngModel)]="votoTemp.studente"
+          #studente="ngModel"
+          required
+          minlength="5"
+          maxlength="20"
+        >
+        <div class="error-message" *ngIf="studente.touched && studente.invalid">
+          <div *ngIf="studente.errors?.['required']">Il nome dello studente è richiesto</div>
+          <div *ngIf="studente.errors?.['minlength']">Il nome dello studente è troppo corto</div>
+        </div>
+      </mat-form-field>
+      <br/>
+      <mat-form-field>
+        <mat-label>Materia</mat-label>
+        <input 
+          matInput
+          type="text"
+          id="materia"
+          name="materia"
+          [(ngModel)]="votoTemp.materia"
+          #materia="ngModel"
+          required
+          minlength="3"
+          maxlength="20"
+        >
+        <div class="error-message" *ngIf="materia.touched && materia.invalid">
+          <div *ngIf="materia.errors?.['required']">Il nome della materia è richiesto</div>
+          <div *ngIf="materia.errors?.['minlength']">Il nome della materia è troppo corto</div>
+        </div>
+      </mat-form-field>
+      <br/>
+      <mat-form-field>
+        <mat-label>Valore</mat-label>
+        <input 
+          matInput
+          type="number"
+          id="valore"
+          name="valore"
+          [(ngModel)]="votoTemp.valore"
+          #valore="ngModel"
+          required
+          min="1"
+          max="10"
+        >
+        <div class="error-message" *ngIf="valore.touched && valore.invalid">
+          <div *ngIf="valore.errors?.['required']">Il valore è richiesto</div>
+          <div *ngIf="valore.errors?.['min']">No voti sotto l'uno</div>
+          <div *ngIf="valore.errors?.['max']">No voti sopra il dieci</div>
+        </div>
+      </mat-form-field>
+      <br/>
+      <button type="submit" [disabled]="creavoto.form.invalid" mat-flat-button>Crea</button>
+    
+    </form>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+<br/>
+
+
 <div *ngFor="let voto of voti">
     <mat-card class="example-card" appearance="outlined">
         <mat-card-header>
