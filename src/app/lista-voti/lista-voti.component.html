@@ -1,0 +1,15 @@
+<div *ngFor="let voto of voti">
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{voto.studente}}</mat-card-title>
+            <mat-card-subtitle>{{voto.materia}}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          {{voto.valore}}/10
+        </mat-card-content>
+      </mat-card>
+      <br/>
+</div>
+  

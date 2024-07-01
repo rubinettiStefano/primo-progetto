@@ -1,0 +1,23 @@
+mat-grid-list {
+    margin-top: 64px; /* Altezza della toolbar */
+  }
+  
+  mat-grid-tile {
+    display: flex;
+    justify-content: flex-start; /* Allinea il contenuto alla parte superiore */
+    align-items: center;
+    padding-top: 20px; /* Aggiungi un po' di spazio in alto se necessario */
+  }
+  
+  .tile-content {
+    position: absolute;
+    top:0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button {
+    margin-bottom: 20px; /* Aggiungi spazio tra il pulsante e il contenuto sottostante */
+  }

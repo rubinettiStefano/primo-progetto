@@ -1,5 +1,32 @@
-<h1>CIAO MONDO ANGOLARE!!!</h1>
-<!-- INTERPOLAZIONE - One Way Binding -> STAMPO IL VALORE DI UNA VARIABILE A SCHERMO-->
- <h2>{{testo}}</h2>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> CIAO MONDO ANGOLARE!!!</mat-card-title>
+    <mat-card-subtitle>{{testo}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-raised-button (click)="stampa()">STAMPA IN CONSOLE</button>
+  </mat-card-actions>
+</mat-card>
 
-<app-lista-citazioni></app-lista-citazioni>
+<mat-grid-list cols="2" rowHeight="100vh">
+  <mat-grid-tile>
+    <div class="tile-content">
+      <button mat-raised-button (click)="toggleCitazioni()">{{showCitazioni ? "Nascondi Citazioni" :"Mostra Citazioni"}}</button>
+      <div *ngIf="showCitazioni">
+        <app-lista-citazioni></app-lista-citazioni>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="tile-content">
+      <button mat-raised-button (click)="toggleVoti()">{{showVoti ? "Nascondi Voti" :"Mostra Voti"}}</button>
+      <div *ngIf="showVoti">
+        <app-lista-voti></app-lista-voti>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+
+

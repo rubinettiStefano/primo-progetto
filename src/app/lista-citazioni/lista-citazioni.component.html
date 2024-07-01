@@ -1,6 +1,26 @@
 <div *ngFor="let cit of citazioni">
-    <h3>{{cit.contenuto}}</h3>
-    <h3>by {{cit.autore}}</h3>
-    <br/>
+    <mat-card class="example-card" appearance="outlined">
+        
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{cit.autore}} <button (click)="cancellaCitazione(cit.id)" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+              <mat-icon>close</mat-icon>
+            </button></mat-card-title>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <mat-label>Citazione</mat-label>
+            <input matInput [(ngModel)]="cit.contenuto" >
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions >
+          <button (click)="stampaCitazione(cit.id)" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>print</mat-icon>
+          </button>
+        </mat-card-actions>
+     
+      </mat-card>
+      <br/>
 </div>
   
