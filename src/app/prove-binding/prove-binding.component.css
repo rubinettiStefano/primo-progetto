@@ -1,0 +1,9 @@
+div
+{
+    padding: 50px;
+}
+
+form .ng-invalid
+{
+    background-color: red !important;
+}

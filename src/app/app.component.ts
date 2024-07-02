@@ -7,12 +7,13 @@ import { ListaVotiComponent } from "./lista-voti/lista-voti.component";
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
+import { ProveBindingComponent } from "./prove-binding/prove-binding.component";
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [MatCardModule,MatGridListModule,MatButtonModule,RouterOutlet, CommonModule, ListaCitazioniComponent, ListaVotiComponent]
+    imports: [MatCardModule, MatGridListModule, MatButtonModule, RouterOutlet, CommonModule, ListaCitazioniComponent, ListaVotiComponent, ProveBindingComponent]
 })
 export class AppComponent 
 {

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAccordion,MatExpansionModule } from '@angular/material/expansion';
+import { VotiServiceService } from '../services/voti-service.service';
 
 @Component({
   selector: 'app-lista-voti',
@@ -17,22 +18,21 @@ import { MatAccordion,MatExpansionModule } from '@angular/material/expansion';
 export class ListaVotiComponent 
 {
 
+  constructor(private mockDb:VotiServiceService)
+  {
+    this.voti = mockDb.getAllVoti();
+  }
+
   accordion = viewChild.required(MatAccordion);
   votoTemp:Voto = {id:0,studente:"",materia:"",valore:6}
 
-  voti:Voto[] = [
-    {id:1,studente:"Ferdinando",materia:"Età",valore:10},
-    {id:2,studente:"Stefano",materia:"CSS",valore:6},
-    {id:3,studente:"Adrian",materia:"Buon Senso",valore:4}
-  ];
+  voti:Voto[];
 
 
   raccogliSubmit():void 
   {
-    let nuovoVoto = {...this.votoTemp};//clona votoTemp
-    let nuovoId = this.voti.map(v => v.id).sort().reverse()[0]+1;
-    nuovoVoto.id = nuovoId;
-    this.voti.unshift(nuovoVoto);
+    this.mockDb.insert(this.votoTemp);
+    this.voti = this.mockDb.getAllVoti();
     this.votoTemp={id:0,studente:"",materia:"",valore:6};
   }
 }

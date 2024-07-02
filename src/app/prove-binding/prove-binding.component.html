@@ -1,0 +1,58 @@
+<div>
+
+    
+    <p  (click)="cambiaColore()" [style.color]="coloreTesto">{{variabileDaInterpolare}}</p>
+
+    
+
+
+    <img [src]="urlImg" />
+    <!-- <div *ngFor="let casa of case">
+        <img [src]="casa.img" />
+      
+    </div> -->
+    <br/>
+    <br/>
+    <!-- let ilpulsante = document.getQuellElemento() -->
+    <button #ilpulsante (click)="stampaScritta()" >STAMPA</button>
+    <br/><br/>
+    <button (click)="ilpulsante.style.backgroundColor='green'">Altro bottone che clicca il primo</button>
+    <br/>
+
+    <form #form="ngForm" (ngSubmit)="stampaScritta()">
+
+        <input 
+            name="valoreInput1"  
+            [(ngModel)]="valoreInput1" 
+            required 
+            type="email"
+            pattern=".+\.it$"
+            email
+            #casella1="ngModel"
+        >
+        <br/>
+        <input 
+            name="prop1" 
+            [(ngModel)]="oggettoForm.prop1" 
+            [disabled]="casella1.invalid==true"
+        >
+        <br/>
+        <input 
+            type="number" 
+            name="prop2" 
+            [(ngModel)]="oggettoForm.prop2"
+            required
+            min="0"
+            #casella="ngModel"
+        >
+
+        <div *ngIf="casella.touched">
+            LA CASELLA È STATA TOCCATA
+        </div>
+        <br/>
+        <button [disabled]="form.invalid" type="submit">Submitta form</button>
+    </form>
+
+
+
+</div>
